@@ -57,13 +57,12 @@
 		/*==========  Range Sliders  ==========*/
 		$('#price-slider').noUiSlider({
 			connect: true,
-			behaviour: 'tap',
 			margin: 5000,
-			start: [20000, 100000],
-			step: 2000,
+			start: [0, 350],
+			step: 100,
 			range: {
-				'min': 0,
-				'max': 150000
+				'min': 10,
+				'max': 50000		
 			}
 		});
 		$('#price-slider').Link('lower').to($('#price-min'), null, wNumb({
@@ -76,8 +75,8 @@
 			connect: true,
 			behaviour: 'tap',
 			margin: 20000,
-			start: [100000, 400000],
-			step: 10000,
+			start: [0, 40],
+			step: 5,
 			range: {
 				'min': 0,
 				'max': 500000
