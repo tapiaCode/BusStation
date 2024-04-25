@@ -318,7 +318,7 @@
 	var map;
 	function initialize_full_width_map() {
 		if ($('.map').length) {
-			var myLatLng = new google.maps.LatLng(-37.814199, 144.961560);
+			var myLatLng = new google.maps.LatLng(-17.91921753912921, -64.52514390937685);
 			var mapOptions = {
 				zoom: 15,
 				center: myLatLng,
@@ -342,5 +342,20 @@
 		return false;
 	}
 	google.maps.event.addDomListener(window, 'load', initialize_full_width_map);
+ 	
+	/*==========  autobus  ==========*/	
+	 document.addEventListener("DOMContentLoaded", function() {
+        const seats = document.querySelectorAll(".seat");
+        
+        seats.forEach(seat => {
+            seat.addEventListener("click", function() {
+                if (seat.classList.contains("selected")) {
+                    seat.classList.remove("selected");
+                } else {
+                    seat.classList.add("selected");
+                }
+            });
+        });
+    });
 
 })(jQuery);

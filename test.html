@@ -1,39 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Date Picker</title>
+    <meta charset="UTF-8">
+    <title>Reserva de Asientos</title>
     <style>
-        /* Estilos para el contenedor */
-        .date-container {
-            width: 300px;
-            margin: 20px auto;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+        #bus-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
         }
 
-        /* Estilos para el input de fecha */
-        .date-container label {
-            font-size: 18px;
-            display: block;
-            margin-bottom: 10px;
+        svg {
+            width: 600px;
+            height: 600px; /* Aumentado el alto para más filas */
         }
 
-        .date-container input[type="date"] {
-            width: 100%;
-            padding: 8px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            font-size: 16px;
+        .seat {
+            fill: #aaa;
+            stroke: #000;
+            stroke-width: 2;
+        }
+
+        .aisle {
+            fill: #aaa;
+        }
+
+        .selected {
+            fill: #00f;
+        }
+
+        .seat-text {
+            font-size: 12px;
+            text-anchor: middle;
+            fill: #000;
         }
     </style>
 </head>
 <body>
 
-<div class="date-container">
-    <label for="fecha">Selecciona una fecha:</label>
-    <input type="date" id="fecha" name="fecha">
+<div id="bus-container">
+    <svg id="bus" viewBox="0 0 600 600">
+        <!-- Autobús -->
+        <rect x="50" y="50" width="500" height="500" fill="#ccc" stroke="#000" stroke-width="3"/>
+        
+        <!-- Pasillos -->
+        <!-- Cada pasillo tiene 80px de ancho y 40px de espacio entre ellos -->
+        <!-- Fila 1 -->
+        <rect class="aisle" x="150" y="50" width="80" height="500"/>
+        <rect class="aisle" x="350" y="50" width="80" height="500"/>
+        
+        <!-- Asientos -->
+        <!-- Asientos izquierdos -->
+        <!-- 10 filas -->
+        <!-- Cada fila tiene un espacio de 40px entre asientos -->
+        <!-- y un espacio de 60px entre filas -->
+        <!-- Fila 1 -->
+        <circle class="seat" cx="100" cy="70" r="15"/>
+        <text class="seat-text" x="100" y="70" dy=".3em">1</text>
+        <circle class="seat" cx="100" cy="110" r="15"/>
+        <text class="seat-text" x="100" y="110" dy=".3em">2</text>
+
+        <!-- ... -->
+
+        <!-- Fila 10 -->
+        <circle class="seat" cx="100" cy="590" r="15"/>
+        <text class="seat-text" x="100" y="590" dy=".3em">19</text>
+        <circle class="seat" cx="100" cy="630" r="15"/>
+        <text class="seat-text" x="100" y="630" dy=".3em">20</text>
+
+        <!-- Asientos derechos -->
+        <!-- 10 filas -->
+        <!-- Cada fila tiene un espacio de 40px entre asientos -->
+        <!-- y un espacio de 60px entre filas -->
+        <!-- Fila 1 -->
+        <circle class="seat" cx="500" cy="70" r="15"/>
+        <text class="seat-text" x="500" y="70" dy=".3em">21</text>
+        <circle class="seat" cx="500" cy="110" r="15"/>
+        <text class="seat-text" x="500" y="110" dy=".3em">22</text>
+
+        <!-- ... -->
+
+        <!-- Fila 10 -->
+        <circle class="seat" cx="500" cy="590" r="15"/>
+        <text class="seat-text" x="500" y="590" dy=".3em">39</text>
+        <circle class="seat" cx="500" cy="630" r="15"/>
+        <text class="seat-text" x="500" y="630" dy=".3em">40</text>
+    </svg>
 </div>
+
+<script>
+    // Función para seleccionar/deseleccionar asientos
+    document.addEventListener("DOMContentLoaded", function() {
+        const seats = document.querySelectorAll(".seat");
+        
+        seats.forEach(seat => {
+            seat.addEventListener("click", function() {
+                if (seat.classList.contains("selected")) {
+                    seat.classList.remove("selected");
+                } else {
+                    seat.classList.add("selected");
+                }
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
