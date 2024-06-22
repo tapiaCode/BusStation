@@ -333,7 +333,7 @@
 			var marker = new google.maps.Marker({
 				position: myLatLng,
 				map: map,
-				title: 'Envato',
+				title: 'tapiaCode',
 				icon: './images/marker.png'
 			});
 		} else {
@@ -343,19 +343,6 @@
 	}
 	google.maps.event.addDomListener(window, 'load', initialize_full_width_map);
  	
-	/*==========  autobus  ==========*/	
-	 document.addEventListener("DOMContentLoaded", function() {
-        const seats = document.querySelectorAll(".seat");
-        
-        seats.forEach(seat => {
-            seat.addEventListener("click", function() {
-                if (seat.classList.contains("selected")) {
-                    seat.classList.remove("selected");
-                } else {
-                    seat.classList.add("selected");
-                }
-            });
-        });
-    });
+	
 
 })(jQuery);

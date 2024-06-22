@@ -1,411 +1,679 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Terminal Autobuses</title>
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Font Awesome -->
-    <link href="fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <!-- Ionicons -->
-    <link href="fonts/ionicons/css/ionicons.min.css" rel="stylesheet" />
-    <!-- Cars -->
-    <link href="fonts/cars/style.css" rel="stylesheet" />
-    <!-- FlexSlider -->
-    <link href="scripts/FlexSlider/flexslider.css" rel="stylesheet" />
-    <!-- Owl Carousel -->
-    <link href="css/owl.carousel.css" rel="stylesheet" />
-    <link href="css/owl.theme.default.css" rel="stylesheet" />
-    <!-- noUiSlider -->
-    <link href="css/jquery.nouislider.min.css" rel="stylesheet" />
-    <!-- Style.css -->
-    <link href="css/style.css" rel="stylesheet" />
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Terminal Autobuses</title>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link href="fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+  <!-- Ionicons -->
+  <link href="fonts/ionicons/css/ionicons.min.css" rel="stylesheet" />
+  <!-- Cars -->
+  <link href="fonts/cars/style.css" rel="stylesheet" />
+  <!-- FlexSlider -->
+  <link href="scripts/FlexSlider/flexslider.css" rel="stylesheet" />
+  <!-- Owl Carousel -->
+  <link href="css/owl.carousel.css" rel="stylesheet" />
+  <link href="css/owl.theme.default.css" rel="stylesheet" />
+  <!-- noUiSlider -->
+  <link href="css/jquery.nouislider.min.css" rel="stylesheet" />
+  <!-- Style.css -->
+  <link href="css/style.css" rel="stylesheet" />
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style>
-      /* Estilos para el div contenedor */
-      .radio-container {
-        display: flex;
-        justify-content: space-between;
-      }
+  <style>
+    /* Estilos para el div contenedor */
+    .radio-container {
+      display: flex;
+      justify-content: space-between;
+    }
 
-      /* Estilos para los botones de radio */
-      .radio-container label {
-        color: aliceblue;
-        font-size: 18px;
-        margin-right: 10px;
-      }
+    text {
+      pointer-events: none;
+      /* Evita que el texto interfiera con los eventos del ratón */
+      user-select: none;
+      /* Evita la selección de texto */
+    }
 
-      .radio-container input[type="radio"] {
-        margin-right: 15px;
-        transform: scale(1.5); /* Hace el botón de radio un poco más grande */
-      }
+    /* Estilos para los botones de radio */
+    .radio-container label {
+      color: aliceblue;
+      font-size: 18px;
+      margin-right: 10px;
+    }
 
-      #bus-container {
-            display: flex;
-            justify-content: center;
-            align-items: end;
-            height: 40vh;
-            background-color: #f0f0f0;
-        }
+    .radio-container input[type="radio"] {
+      margin-right: 15px;
+      transform: scale(1.5);
+      /* Hace el botón de radio un poco más grande */
+    }
 
-        svg {
-            width: 600px;
-            height: 500px;
-        }
+    #bus-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 40vh;
+      background-color: #f0f0f0;
+    }
 
-        .seat {
-            fill: #aaa;
-            stroke: #000;
-            stroke-width: 1;
-        }
+    svg {
+      width: 600px;
+      height: 500px;
+    }
+  </style>
 
-        .selected {
-            fill: rgb(30, 255, 0);
-        }
+</head>
 
-        .seat-text {
-            font-size: 10px;
-            text-anchor: middle;
-            fill: #000;
-        }
-    </style>
-    
-  </head>
-  <body>
-    <header class="header">
-      <div class="container">
-        <div class="navigation clearfix">
-          <div class="logo">
-            <a href="index.html"
-              ><img src="images/logo.png" alt="Automan" class="img-responsive"
-            /></a>
-          </div>
-          <!-- end .logo -->
-          <div class="login">
-            <a href=""><i class="ion-ios-person"></i></a>
-          </div>
-          <!-- end .login -->
-          <div class="contact">
-            <div class="line"></div>
-            <a href="contact-us.html"><i class="fa fa-phone"></i></a>
-          </div>
-          <!-- end .contact -->
-          <nav class="main-nav">
-            <ul class="list-unstyled">
-              <li class="active">
-                <a href="index.html">Inicio</a>
-              </li>
-              <li><a href="contact-us.html">contactanos</a></li>
-            </ul>
-          </nav>
-          <!-- end .main-nav -->
-          <a href="" class="responsive-menu-open"><i class="fa fa-bars"></i></a>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="navigation clearfix">
+        <div class="logo">
+          <a href="index.html"><img src="images/logo.png" alt="Automan" class="img-responsive" /></a>
         </div>
-        <!-- end .navigation -->
+        <!-- end .logo -->
+        <div class="login">
+          <a href=""><i class="ion-ios-person"></i></a>
+        </div>
+        <!-- end .login -->
+        <div class="contact">
+          <div class="line"></div>
+          <a href="contact-us.html"><i class="fa fa-phone"></i></a>
+        </div>
+        <!-- end .contact -->
+        <nav class="main-nav">
+          <ul class="list-unstyled">
+            <li class="active">
+              <a href="index.html">Inicio</a>
+            </li>
+            <li><a href="contact-us.html">contactanos</a></li>
+          </ul>
+        </nav>
+        <!-- end .main-nav -->
+        <a href="" class="responsive-menu-open"><i class="fa fa-bars"></i></a>
+      </div>
+      <!-- end .navigation -->
+    </div>
+    <!-- end .container -->
+  </header>
+  <!-- end .header -->
+  <div class="responsive-menu">
+    <a href="" class="responsive-menu-close"><i class="ion-android-close"></i></a>
+    <nav class="responsive-nav"></nav>
+    <!-- end .responsive-nav -->
+  </div>
+  <!-- end .responsive-menu -->
+  <div class="page-title" style="background-image: url('images/back.jpg')">
+    <div class="inner">
+      <div class="container">
+        <div class="title">seccion de reservas</div>
+        <!-- end .title -->
       </div>
       <!-- end .container -->
-    </header>
-    <!-- end .header -->
-    <div class="responsive-menu">
-      <a href="" class="responsive-menu-close"
-        ><i class="ion-android-close"></i
-      ></a>
-      <nav class="responsive-nav"></nav>
-      <!-- end .responsive-nav -->
     </div>
-    <!-- end .responsive-menu -->
-    <div class="page-title" style="background-image: url('images/back.jpg')">
-      <div class="inner">
-        <div class="container">
-          <div class="title">seccion de reservas</div>
-          <!-- end .title -->
-        </div>
-        <!-- end .container -->
-      </div>
-      <!-- end .inner -->
-    </div>
-    <!-- end .page-title -->
+    <!-- end .inner -->
+  </div>
+  <!-- end .page-title -->
 
-    <section class="section small-top-padding white">
-      <div class="inner">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-9">
-              <div class="listings">
-                <div class="heading clearfix">
-                  <div class="view">
-                    <a href="listing-list-view.html" class="active"
-                      ><i class="fa fa-th-list"></i
-                    ></a>
-                    <a href="listing-grid-view.html"
-                      ><i class="fa fa-th"></i
-                    ></a>
-                  </div>
-                  <!-- end .view -->
+  <section class="section small-top-padding white">
+    <div class="inner">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-9">
+            <div class="listings">
+              <div class="heading clearfix">
+                <div class="view">
+                  <a href="listing-list-view.html" class="active"><i class="fa fa-th-list"></i></a>
+                  <a href="listing-grid-view.html"><i class="fa fa-th"></i></a>
                 </div>
-                <!-- end .heading -->
-                <div class="listings-list clearfix">
-                  <div class="listing">
-                    <div
-                      class="image"
-                      style="background-image: url('images/listing02.jpg')"
-                    ></div>
-                    <div class="details">
-                      <div class="item">
-                        <span>32 pasajes</span><i class="icon-car-seat"></i>
-                      </div>
-                      <div class="item">
-                        <span>gasolina</span><i class="icon-car-fuel"></i>
-                      </div>
-                      <div class="item">
-                        <span>4x4</span><i class="icon-car-door"></i>
-                      </div>
-                      <div class="item">
-                        <span>mecanico</span><i class="icon-car-gear"></i>
-                      </div>
-                      <div class="item">
-                        <span>Moderno</span><i class="fa fa-certificate"></i>
-                      </div>
+                <!-- end .view -->
+              </div>
+              <!-- end .heading -->
+              <div class="listings-list clearfix">
+                <div class="listing">
+                  <div class="image" style="background-image: url('images/listing02.jpg')"></div>
+                  <div class="details">
+                    <div class="item">
+                      <span>32 pasajes</span><i class="icon-car-seat"></i>
                     </div>
-                    <!-- end .details -->
-                    <div class="content">
-                      <div class="rating">
-                        <i class="fa fa-star"></i><i class="fa fa-star"></i
-                        ><i class="fa fa-star"></i><i class="fa fa-star"></i
-                        ><i class="fa fa-star-o"></i>
-                      </div>
-                      <div class="title">
-                        <a href="details-1.html"
-                          >BUS CAMA CONFORT</span></a
-                        >
-                      </div>
-                      <p>
-                        Lorem Ipsum is simply dummy text of the printing and Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque corrupti ab non sequi, inventore fugit ut exercitationem dolore, dolor alias perferendis praesentium aliquid illum recusandae, odit quia. Odit, qui delectus.
-                        Explicabo earum praesentium ducimus error velit dolor officiis consequuntur necessitatibus, magni dignissimos illum commodi? Qui, sapiente, error ducimus porro, voluptatum nesciunt minima earum modi vel neque labore natus! Nobis, tenetur.
-                      </p>
-                      <div class="price">Bs. 30,00 <span>/ pasaje</span></div>
+                    <div class="item">
+                      <span>gasolina</span><i class="icon-car-fuel"></i>
                     </div>
-                    <!-- end .content -->
+                    <div class="item">
+                      <span>4x4</span><i class="icon-car-door"></i>
+                    </div>
+                    <div class="item">
+                      <span>mecanico</span><i class="icon-car-gear"></i>
+                    </div>
+                    <div class="item">
+                      <span>Moderno</span><i class="fa fa-certificate"></i>
+                    </div>
                   </div>
-                  <!-- end .listing -->
+                  <!-- end .details -->
+                  <div class="content">
+                    <div class="rating">
+                      <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star-o"></i>
+                    </div>
+                    <div class="title">
+                      <a href="details-1.html">BUS CAMA CONFORT</span></a>
+                    </div>
+                    <p>
+                      Lorem Ipsum is simply dummy text of the printing and Lorem ipsum dolor, sit amet consectetur
+                      adipisicing elit. Cumque corrupti ab non sequi, inventore fugit ut exercitationem dolore, dolor
+                      alias perferendis praesentium aliquid illum recusandae, odit quia. Odit, qui delectus.
+                      Explicabo earum praesentium ducimus error velit dolor officiis consequuntur necessitatibus, magni
+                      dignissimos illum commodi? Qui, sapiente, error ducimus porro, voluptatum nesciunt minima earum
+                      modi vel neque labore natus! Nobis, tenetur.
+                    </p>
+                    <div class="price">Bs. 30,00 <span>/ pasaje</span></div>
+                  </div>
+                  <!-- end .content -->
+                </div>
+                <!-- end .listing -->
                 <h3>SELECCION DE ASIENTOS</h3>
-                  <div id="bus-container">
+                <div id="bus-container">
 
-                    <svg id="bus" viewBox="0 0 600 300">
-                      <!-- Autobús -->
-                      <rect x="50" y="50" width="500" height="300" fill="#ccc" stroke="#000" stroke-width="3"/>
-                      
-                      <!-- Asientos -->
-                      <!-- Fila 1 -->
-                      <circle class="seat" cx="100" cy="100" r="15"/>
-                      <text class="seat-text" x="100" y="100" dy=".3em">1</text>
-                  
-                      <circle class="seat" cx="150" cy="100" r="15"/>
-                      <text class="seat-text" x="150" y="100" dy=".3em">2</text>
-                  
-                      <circle class="seat" cx="200" cy="100" r="15"/>
-                      <text class="seat-text" x="200" y="100" dy=".3em">3</text>
-                  
-                      <circle class="seat" cx="250" cy="100" r="15"/>
-                      <text class="seat-text" x="250" y="100" dy=".3em">4</text>
-                  
-                      <!-- Fila 2 -->
-                      <circle class="seat" cx="100" cy="150" r="15"/>
-                      <text class="seat-text" x="100" y="150" dy=".3em">5</text>
-                  
-                      <circle class="seat" cx="150" cy="150" r="15"/>
-                      <text class="seat-text" x="150" y="150" dy=".3em">6</text>
-                  
-                      <circle class="seat" cx="200" cy="150" r="15"/>
-                      <text class="seat-text" x="200" y="150" dy=".3em">7</text>
-                  
-                      <circle class="seat" cx="250" cy="150" r="15"/>
-                      <text class="seat-text" x="250" y="150" dy=".3em">8</text>
-                  
-                      <!-- Fila 3 -->
-                      <circle class="seat" cx="350" cy="100" r="15"/>
-                      <text class="seat-text" x="350" y="100" dy=".3em">9</text>
-                  
-                      <circle class="seat" cx="400" cy="100" r="15"/>
-                      <text class="seat-text" x="400" y="100" dy=".3em">10</text>
-                  
-                      <circle class="seat" cx="450" cy="100" r="15"/>
-                      <text class="seat-text" x="450" y="100" dy=".3em">11</text>
-                  
-                      <circle class="seat" cx="500" cy="100" r="15"/>
-                      <text class="seat-text" x="500" y="100" dy=".3em">12</text>
-                  
-                      <!-- Fila 4 -->
-                      <circle class="seat" cx="350" cy="150" r="15"/>
-                      <text class="seat-text" x="350" y="150" dy=".3em">13</text>
-                  
-                      <circle class="seat" cx="400" cy="150" r="15"/>
-                      <text class="seat-text" x="400" y="150" dy=".3em">14</text>
-                  
-                      <circle class="seat" cx="450" cy="150" r="15"/>
-                      <text class="seat-text" x="450" y="150" dy=".3em">15</text>
-                  
-                      <circle class="seat" cx="500" cy="150" r="15"/>
-                      <text class="seat-text" x="500" y="150" dy=".3em">16</text>
-                  
-                      <!-- Fila 5 -->
-                      <circle class="seat" cx="100" cy="200" r="15"/>
-                      <text class="seat-text" x="100" y="200" dy=".3em">17</text>
-                  
-                      <circle class="seat" cx="150" cy="200" r="15"/>
-                      <text class="seat-text" x="150" y="200" dy=".3em">18</text>
-                  
-                      <circle class="seat" cx="200" cy="200" r="15"/>
-                      <text class="seat-text" x="200" y="200" dy=".3em">19</text>
-                  
-                      <circle class="seat" cx="250" cy="200" r="15"/>
-                      <text class="seat-text" x="250" y="200" dy=".3em">20</text>
-                  
-                      <!-- Fila 6 -->
-                      <circle class="seat" cx="350" cy="200" r="15"/>
-                      <text class="seat-text" x="350" y="200" dy=".3em">21</text>
-                  
-                      <circle class="seat" cx="400" cy="200" r="15"/>
-                      <text class="seat-text" x="400" y="200" dy=".3em">22</text>
-                  
-                      <circle class="seat" cx="450" cy="200" r="15"/>
-                      <text class="seat-text" x="450" y="200" dy=".3em">23</text>
-                  
-                      <circle class="seat" cx="500" cy="200" r="15"/>
-                      <text class="seat-text" x="500" y="200" dy=".3em">24</text>
-
-                      <!-- Fila 7 -->
-                      <circle class="seat" cx="100" cy="250" r="15"/>
-                      <text class="seat-text" x="100" y="250" dy=".3em">25</text>
-
-                      <circle class="seat" cx="150" cy="250" r="15"/>
-                      <text class="seat-text" x="150" y="250" dy=".3em">26</text>
-
-                      <circle class="seat" cx="200" cy="250" r="15"/>
-                      <text class="seat-text" x="200" y="250" dy=".3em">27</text>
-
-                      <circle class="seat" cx="250" cy="250" r="15"/>
-                      <text class="seat-text" x="250" y="250" dy=".3em">28</text>
-
-                      <!-- Fila 8 -->
-                      <circle class="seat" cx="350" cy="250" r="15"/>
-                      <text class="seat-text" x="350" y="250" dy=".3em">29</text>
-
-                      <circle class="seat" cx="400" cy="250" r="15"/>
-                      <text class="seat-text" x="400" y="250" dy=".3em">30</text>
-
-                      <circle class="seat" cx="450" cy="250" r="15"/>
-                      <text class="seat-text" x="450" y="250" dy=".3em">31</text>
-
-                      <circle class="seat" cx="500" cy="250" r="15"/>
-                      <text class="seat-text" x="500" y="250" dy=".3em">32</text>
+                  <svg id="bus" width="1435.7172" height="623.83063" viewBox="0 0 107.30707 46.625786" version="1.1"
+                    id="svg1" inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)" sodipodi:docname="autobus.svg"
+                    inkscape:export-filename="autobus.svg" inkscape:export-xdpi="96" inkscape:export-ydpi="96"
+                    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+                    <sodipodi:namedview id="namedview1" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25"
+                      inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="false"
+                      inkscape:deskcolor="#d1d1d1" inkscape:document-units="px" inkscape:zoom="0.6458964"
+                      inkscape:cx="1110.8593" inkscape:cy="705.22146" inkscape:window-width="1920"
+                      inkscape:window-height="991" inkscape:window-x="-9" inkscape:window-y="-9"
+                      inkscape:window-maximized="1" inkscape:current-layer="layer1" />
+                    <defs id="defs1" />
+                    <g inkscape:label="Capa 1" inkscape:groupmode="layer" id="layer1"
+                      transform="translate(-15.943863,-19.521932)">
+                      <path id="path1"
+                        style="opacity:1;fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.41085;stroke-dasharray:none;stroke-opacity:1"
+                        d="m 95.713985,24.41507 c -13.501481,-0.04237 -30.574945,0.132318 -45.539846,0.0571 -4.48947,-0.02257 -8.768502,-0.02925 -12.672776,-0.0149 -11.712819,0.04307 -20.19834,0.154225 -20.589539,0.840402 -1.2931,2.268143 -0.654365,34.19026 -0.169158,35.163138 0.485206,0.972877 102.424934,0.820884 103.256514,-0.311336 0.83159,-1.132221 1.17758,-32.601833 -0.17684,-34.489063 -0.6772,-0.943615 -10.60689,-1.202975 -24.108355,-1.245343 z" />
+                      <rect
+                        style="opacity:1;fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect1" width="5.7912621" height="6.5266604" x="22.79735" y="26.566267" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect2" width="5.7912621" height="6.5266604" x="22.817442" y="34.218365" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect3" width="5.7912621" height="6.5266604" x="32.607651" y="26.655441" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect4" width="5.7912621" height="6.5266604" x="32.627743" y="34.307537" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect5" width="5.7912621" height="6.5266604" x="42.59816" y="26.76465" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect6" width="5.7912621" height="6.5266604" x="42.618252" y="34.416748" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect7" width="5.7912621" height="6.5266604" x="52.408463" y="26.853825" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect8" width="5.7912621" height="6.5266604" x="52.428555" y="34.50592" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect9" width="5.7912621" height="6.5266604" x="22.78301" y="45.041325" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect10" width="5.7912621" height="6.5266604" x="22.803102" y="52.69342" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect11" width="5.7912621" height="6.5266604" x="32.593311" y="45.130497" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect12" width="5.7912621" height="6.5266604" x="32.613403" y="52.782593" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect13" width="5.7912621" height="6.5266604" x="42.58382" y="45.239708" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect14" width="5.7912621" height="6.5266604" x="42.603909" y="52.891804" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect15" width="5.7912621" height="6.5266604" x="52.394123" y="45.32888" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect16" width="5.7912621" height="6.5266604" x="52.414211" y="52.980976" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect17" width="5.7912621" height="6.5266604" x="61.619682" y="45.246803" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect18" width="5.7912621" height="6.5266604" x="61.639774" y="52.898899" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect19" width="5.7912621" height="6.5266604" x="71.610191" y="45.356014" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect20" width="5.7912621" height="6.5266604" x="71.63028" y="53.00811" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect21" width="5.7912621" height="6.5266604" x="81.420494" y="45.445187" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect22" width="5.7912621" height="6.5266604" x="81.440582" y="53.097282" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect23" width="5.7912621" height="6.5266604" x="91.652916" y="45.313728" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect24" width="5.7912621" height="6.5266604" x="91.673004" y="52.965824" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect25" width="5.7912621" height="6.5266604" x="101.46322" y="45.402901" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect26" width="5.7912621" height="6.5266604" x="101.48331" y="53.054996" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect27" width="5.7912621" height="6.5266604" x="91.302444" y="27.060812" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect28" width="5.7912621" height="6.5266604" x="91.322533" y="34.71291" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect29" width="5.7912621" height="6.5266604" x="101.11275" y="27.149984" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect30" width="5.7912621" height="6.5266604" x="101.13284" y="34.802082" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect31" width="5.7912621" height="6.5266604" x="61.705196" y="26.925499" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect32" width="5.7912621" height="6.5266604" x="61.725288" y="34.577595" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect33" width="5.7912621" height="6.5266604" x="71.695702" y="27.03471" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect34" width="5.7912621" height="6.5266604" x="71.71579" y="34.686806" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect35" width="5.7912621" height="6.5266604" x="81.506004" y="27.123882" />
+                      <rect
+                        style="fill:#ffe6d5;fill-opacity:0.810036;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect36" width="5.7912621" height="6.5266604" x="81.526093" y="34.775978" />
+                      <path
+                        style="opacity:1;fill:#28170b;fill-opacity:1;stroke:#28170b;stroke-width:0.423729;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        d="m 116.81691,24.80689 -0.24547,-1.227362 0.6546,-0.08182 0.16364,-0.736418 3.3548,-1.636483 h 0.49094 l 0.6546,-1.391011 0.81824,0.08182 0.0818,4.009384 -0.3273,0.327297 h -0.90006 l -0.40912,-1.472835 -0.6546,-0.163649 -2.20925,1.063715 0.16365,1.554659 z"
+                        id="path2" />
+                      <path
+                        style="fill:#28170b;fill-opacity:1;stroke:#28170b;stroke-width:0.431557;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        d="m 117.06961,60.66303 -0.24516,1.274736 0.65378,0.08498 0.16344,0.764843 3.35057,1.699649 h 0.49032 l 0.65378,1.444703 0.81721,-0.08498 0.0816,-4.164142 -0.3269,-0.339931 h -0.89892 l -0.4086,1.529685 -0.65378,0.169966 -2.20647,-1.104774 0.16344,-1.614667 z"
+                        id="path2-1" />
+                      <path id="path3"
+                        style="opacity:1;fill:#000000;fill-opacity:1;stroke:#28170b;stroke-width:0;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        d="m 100.87053,23.42597 -0.39722,1.032215 10.51296,0.177231 -0.3458,-1.068683 z"
+                        sodipodi:nodetypes="ccccc" />
+                      <path id="path3-9"
+                        style="fill:#000000;fill-opacity:1;stroke:#28170b;stroke-width:0;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        d="m 40.613972,23.217736 -0.39722,1.032215 10.51296,0.177231 -0.3458,-1.068683 z"
+                        sodipodi:nodetypes="ccccc" />
+                      <path id="path3-9-7"
+                        style="fill:#000000;fill-opacity:1;stroke:#28170b;stroke-width:0;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        d="m 40.372043,62.197898 -0.24712,-1.116817 10.519201,0.09774 -0.499806,1.135562 z"
+                        sodipodi:nodetypes="ccccc" />
+                      <path id="path3-9-7-6"
+                        style="fill:#000000;fill-opacity:1;stroke:#28170b;stroke-width:0;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        d="m 100.49817,61.775284 -0.24712,-1.116817 10.5192,0.09774 -0.49981,1.135562 z"
+                        sodipodi:nodetypes="ccccc" />
+                      <rect
+                        style="opacity:1;fill:#000000;fill-opacity:1;stroke:#28170b;stroke-width:0;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect3" width="5.9015594" height="7.1744447" x="111.78248" y="26.036293" />
+                      <rect
+                        style="fill:#000000;fill-opacity:1;stroke:#28170b;stroke-width:0;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect3-5" width="5.9015594" height="7.1744447" x="111.86914" y="33.938618" />
+                      <rect
+                        style="fill:#000000;fill-opacity:1;stroke:#28170b;stroke-width:0;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect3-5-6" width="5.9015594" height="7.1744447" x="112.15984" y="49.424095" />
+                      <rect
+                        style="fill:#000000;fill-opacity:1;stroke:#28170b;stroke-width:0;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect3-5-6-0" width="1.1571686" height="15.04319" x="109.90811" y="45.688797" />
+                      <rect
+                        style="fill:#000000;fill-opacity:1;stroke:#28170b;stroke-width:0;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        id="rect3-5-6-0-6" width="1.1571686" height="17.24181" x="110.01889" y="24.589748" />
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;opacity:1;fill:#28170b;fill-opacity:1;stroke:#28170b;stroke-width:0;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        x="103.48463" y="31.094069" id="text3">
+                        <tspan sodipodi:role="line" id="tspan3" style="font-size:1.9931px;stroke-width:0" x="103.48463"
+                          y="31.094069">1</tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="103.4171" y="38.668774" id="text1">
+                        <tspan sodipodi:role="line" id="tspan1" style="stroke-width:0" x="103.4171" y="38.668774">2
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="103.87996" y="49.396679" id="text2">
+                        <tspan sodipodi:role="line" id="tspan2" style="stroke-width:0" x="103.87996" y="49.396679">3
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="103.87996" y="57.101524" id="text4">
+                        <tspan sodipodi:role="line" id="tspan4" style="stroke-width:0" x="103.87996" y="57.101524">4
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="94.010269" y="57.019569" id="text5">
+                        <tspan sodipodi:role="line" id="tspan5" style="stroke-width:0" x="94.010269" y="57.019569">5
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="94.044037" y="49.483559" id="text6">
+                        <tspan sodipodi:role="line" id="tspan6" style="stroke-width:0" x="94.044037" y="49.483559">6
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="93.614944" y="38.688122" id="text7">
+                        <tspan sodipodi:role="line" id="tspan7" style="stroke-width:0" x="93.614944" y="38.688122">7
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="93.513641" y="31.05081" id="text8">
+                        <tspan sodipodi:role="line" id="tspan8" style="stroke-width:0" x="93.513641" y="31.05081">8
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="83.827187" y="31.166527" id="text9">
+                        <tspan sodipodi:role="line" id="tspan9" style="stroke-width:0" x="83.827187" y="31.166527">9
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="83.147301" y="38.736309" id="text10">
+                        <tspan sodipodi:role="line" id="tspan10" style="stroke-width:0" x="83.147301" y="38.736309">10
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="83.065361" y="49.512394" id="text11">
+                        <tspan sodipodi:role="line" id="tspan11" style="stroke-width:0" x="83.065361" y="49.512394">11
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="82.93029" y="57.101524" id="text12">
+                        <tspan sodipodi:role="line" id="tspan12" style="stroke-width:0" x="82.93029" y="57.101524">12
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="73.181236" y="57.135284" id="text13">
+                        <tspan sodipodi:role="line" id="tspan13" style="stroke-width:0" x="73.181236" y="57.135284">13
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="73.181236" y="49.382259" id="text14">
+                        <tspan sodipodi:role="line" id="tspan14" style="stroke-width:0" x="73.181236" y="49.382259">14
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="73.243843" y="38.736309" id="text15">
+                        <tspan sodipodi:role="line" id="tspan15" style="stroke-width:0" x="73.243843" y="38.736309">15
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="73.263184" y="31.065229" id="text16">
+                        <tspan sodipodi:role="line" id="tspan16" style="stroke-width:0" x="73.263184" y="31.065229">16
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="63.292191" y="30.935095" id="text17">
+                        <tspan sodipodi:role="line" id="tspan17" style="stroke-width:0" x="63.292191" y="30.935095">17
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="63.345303" y="38.437344" id="text18">
+                        <tspan sodipodi:role="line" id="tspan18" style="stroke-width:0" x="63.345303" y="38.437344">18
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="63.210243" y="49.199013" id="text19">
+                        <tspan sodipodi:role="line" id="tspan19" style="stroke-width:0" x="63.210243" y="49.199013">19
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="63.412838" y="56.870087" id="text20">
+                        <tspan sodipodi:role="line" id="tspan20" style="stroke-width:0" x="63.412838" y="56.870087">20
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="54.020424" y="57.067757" id="text21">
+                        <tspan sodipodi:role="line" id="tspan21" style="stroke-width:0" x="54.020424" y="57.067757">21
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="54.169907" y="49.497978" id="text22">
+                        <tspan sodipodi:role="line" id="tspan22" style="stroke-width:0" x="54.169907" y="49.497978">22
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="54.169907" y="38.586826" id="text23">
+                        <tspan sodipodi:role="line" id="tspan23" style="stroke-width:0" x="54.169907" y="38.586826">23
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="53.924053" y="30.862633" id="text24">
+                        <tspan sodipodi:role="line" id="tspan24" style="stroke-width:0" x="53.924053" y="30.862633">24
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="44.319553" y="30.664967" id="text25">
+                        <tspan sodipodi:role="line" id="tspan25" style="stroke-width:0" x="44.319553" y="30.664967">25
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="44.435272" y="38.417999" id="text26">
+                        <tspan sodipodi:role="line" id="tspan26" style="stroke-width:0" x="44.435272" y="38.417999">26
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="44.435272" y="49.411098" id="text27">
+                        <tspan sodipodi:role="line" id="tspan27" style="stroke-width:0" x="44.435272" y="49.411098">27
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="44.203842" y="56.816975" id="text28">
+                        <tspan sodipodi:role="line" id="tspan28" style="stroke-width:0" x="44.203842" y="56.816975">28
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="34.334141" y="56.802555" id="text29">
+                        <tspan sodipodi:role="line" id="tspan29" style="stroke-width:0" x="34.334141" y="56.802555">29
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="34.300373" y="49.329147" id="text30">
+                        <tspan sodipodi:role="line" id="tspan30" style="stroke-width:0" x="34.300373" y="49.329147">30
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="34.334137" y="38.417995" id="text31">
+                        <tspan sodipodi:role="line" id="tspan31" style="stroke-width:0" x="34.334137" y="38.417995">31
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="34.300377" y="30.814451" id="text32">
+                        <tspan sodipodi:role="line" id="tspan32" style="stroke-width:0" x="34.300377" y="30.814451">32
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="24.498207" y="30.664967" id="text33">
+                        <tspan sodipodi:role="line" id="tspan33" style="stroke-width:0" x="24.498207" y="30.664967">33
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="24.531973" y="38.186562" id="text34">
+                        <tspan sodipodi:role="line" id="tspan34" style="stroke-width:0" x="24.531973" y="38.186562">34
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="24.348724" y="49.213428" id="text35">
+                        <tspan sodipodi:role="line" id="tspan35" style="stroke-width:0" x="24.348724" y="49.213428">35
+                        </tspan>
+                      </text>
+                      <text xml:space="preserve"
+                        style="font-size:1.9931px;fill:#28170b;stroke:#28170b;stroke-width:0;stroke-linejoin:round"
+                        x="24.498209" y="56.70126" id="text36">
+                        <tspan sodipodi:role="line" id="tspan36" style="stroke-width:0" x="24.498209" y="56.70126">36
+                        </tspan>
+                      </text>
+                    </g>
                   </svg>
-                  
+
                 </div>
-                  
-                </div>
-                <!-- end .listings -->
+
               </div>
-              <!-- end .listing-grid -->
-              <div class="pagination-wrapper">
-                <nav>
-                  <ul class="pager">
-                    <li class="previous">
-                      <a href=""
-                        ><span><i class="fa fa-angle-left"></i></span>Prev</a
-                      >
-                    </li>
-                    <li class="next">
-                      <a href=""
-                        >Next<span><i class="fa fa-angle-right"></i></span
-                      ></a>
-                    </li>
-                  </ul>
-                  <ul class="pagination">
-                    <li class="active"><a href="">1</a></li>
-                    <li><a href="">2</a></li>
-                    <li><a href="">3</a></li>
-                    <li class="disabled">
-                      <a href=""><i class="ion-ios-more"></i></a>
-                    </li>
-                    <li><a href="">7</a></li>
-                  </ul>
-                </nav>
-              </div>
+              <!-- end .listings -->
             </div>
-            <!-- end .col-sm-9 -->
-            <div class="col-sm-3">
-              <div class="refine-search">
-                <div class="title clearfix">
-                  Personalizar Reserva<i class="fa fa-search pull-right"></i>
+            <!-- end .listing-grid -->
+            <div class="pagination-wrapper">
+              <nav>
+                <ul class="pager">
+                  <li class="previous">
+                    <a href=""><span><i class="fa fa-angle-left"></i></span>Prev</a>
+                  </li>
+                  <li class="next">
+                    <a href="">Next<span><i class="fa fa-angle-right"></i></span></a>
+                  </li>
+                </ul>
+                <ul class="pagination">
+                  <li class="active"><a href="">1</a></li>
+                  <li><a href="">2</a></li>
+                  <li><a href="">3</a></li>
+                  <li class="disabled">
+                    <a href=""><i class="ion-ios-more"></i></a>
+                  </li>
+                  <li><a href="">7</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <!-- end .col-sm-9 -->
+          <div class="col-sm-3">
+            <div class="refine-search">
+              <div class="title clearfix">
+                Personalizar Reserva<i class="fa fa-search pull-right"></i>
+              </div>
+              <form>
+                <div class="form-group">
+                  <div class="select-wrapper">
+                    <h5>Desde:</h5>
+                    <select class="selectpicker">
+                      <option>Comarapa</option>
+                      <option>San Isidro</option>
+                      <option>Mataral</option>
+                      <option>Mairana</option>
+                      <option>Pojo</option>
+                      <option>Churo</option>
+                      <option>Torrecillas</option>
+                    </select>
+                    <span class="arrow"><i class="fa fa-caret-down"></i></span>
+                  </div>
+                  <!-- end .select-wrapper -->
                 </div>
-                <form>
+                <!-- end .form-group -->
+                <div class="form-group">
+                  <div class="select-wrapper">
+                    <h5>Hasta:</h5>
+                    <select class="selectpicker">
+                      <option>Santa Cruz</option>
+                      <option>Cochabamba</option>
+                      <option>Sucre</option>
+                      <option>Vallegrande</option>
+                      <option>Aiquile</option>
+                    </select>
+                    <span class="arrow"><i class="fa fa-caret-down"></i></span>
+                  </div>
+                  <!-- end .select-wrapper -->
+                </div>
+                <!-- end .form-group -->
+                <div class="radio-container">
+                  <label>
+                    <input type="radio" name="opcion" value="opcion1" />
+                    De Ida
+                  </label>
+                  <label>
+                    <input type="radio" name="opcion" value="opcion2" />
+                    De Vuelta
+                  </label>
+                </div>
+                <!-- end .form-group -->
+                <div class="date-container">
+                  <br>
+                  <h5 for="fecha">Selecciona una fecha:</h5>
+                  <input type="date" id="fecha" name="fecha" /> <br>
+                </div>
+                <!-- end .form-group -->
+
+                <div class="form-group">
+                  <div class="select-wrapper">
+                    <h5>Adultos:</h5>
+                    <select class="selectpicker">
+                      <option>0</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                    </select>
+                    <span class="arrow"><i class="fa fa-caret-down"></i></span>
+                  </div>
+                  <!-- end .select-wrapper -->
                   <div class="form-group">
                     <div class="select-wrapper">
-                      <h5>Desde:</h5>
-                      <select class="selectpicker">
-                        <option>Comarapa</option>
-                        <option>San Isidro</option>
-                        <option>Mataral</option>
-                        <option>Mairana</option>
-                        <option>Pojo</option>
-                        <option>Churo</option>
-                        <option>Torrecillas</option>
-                      </select>
-                      <span class="arrow"
-                        ><i class="fa fa-caret-down"></i
-                      ></span>
-                    </div>
-                    <!-- end .select-wrapper -->
-                  </div>
-                  <!-- end .form-group -->
-                  <div class="form-group">
-                    <div class="select-wrapper">
-                      <h5>Hasta:</h5>
-                      <select class="selectpicker">
-                        <option>Santa Cruz</option>
-                        <option>Cochabamba</option>
-                        <option>Sucre</option>
-                        <option>Vallegrande</option>
-                        <option>Aiquile</option>
-                      </select>
-                      <span class="arrow"
-                        ><i class="fa fa-caret-down"></i
-                      ></span>
-                    </div>
-                    <!-- end .select-wrapper -->
-                  </div>
-                  <!-- end .form-group -->
-                  <div class="radio-container">
-                    <label>
-                      <input type="radio" name="opcion" value="opcion1" />
-                      De Ida
-                    </label>
-                    <label>
-                      <input type="radio" name="opcion" value="opcion2" />
-                      De Vuelta
-                    </label>
-                  </div>
-                  <!-- end .form-group -->
-                  <div class="date-container">
-                    <br>
-                    <h5 for="fecha">Selecciona una fecha:</h5>
-                    <input type="date" id="fecha" name="fecha" /> <br>
-                  </div>
-                  <!-- end .form-group -->
-                  
-                  <div class="form-group">
-                    <div class="select-wrapper">
-                      <h5>Adultos:</h5>
+                      <h5>Niños(2 a 11) años:</h5>
                       <select class="selectpicker">
                         <option>0</option>
                         <option>1</option>
@@ -418,14 +686,12 @@
                         <option>8</option>
                         <option>9</option>
                       </select>
-                      <span class="arrow"
-                        ><i class="fa fa-caret-down"></i
-                      ></span>
+                      <span class="arrow"><i class="fa fa-caret-down"></i></span>
                     </div>
                     <!-- end .select-wrapper -->
                     <div class="form-group">
                       <div class="select-wrapper">
-                        <h5>Niños(2 a 11) años:</h5>
+                        <h5>Bebes (0 a 2) años:</h5>
                         <select class="selectpicker">
                           <option>0</option>
                           <option>1</option>
@@ -438,197 +704,167 @@
                           <option>8</option>
                           <option>9</option>
                         </select>
-                        <span class="arrow"
-                          ><i class="fa fa-caret-down"></i
-                        ></span>
+                        <span class="arrow"><i class="fa fa-caret-down"></i></span>
                       </div>
                       <!-- end .select-wrapper -->
-                      <div class="form-group">
-                        <div class="select-wrapper">
-                          <h5>Bebes (0 a 2) años:</h5>
-                          <select class="selectpicker">
-                            <option>0</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                          </select>
-                          <span class="arrow"
-                            ><i class="fa fa-caret-down"></i
-                          ></span>
-                        </div>
-                        <!-- end .select-wrapper -->
-                        <a onclick="window.location.href='https://wa.link/fzjdwa'" class="button solid yellow block">
-                          Reservar 
-                        </a>
-                </form>
-              </div>
-              <!-- end .refine-search -->
-            </div>
-            <!-- end .col-sm-3 -->
-          </div>
-          <!-- end .row -->
-        </div>
-        <!-- end .container -->
-      </div>
-      <!-- end .inner -->
-    </section>
-    <!-- end .section -->
-
-    <footer class="footer">
-      <div class="top">
-        <div class="container">
-          <div class="twitter">
-            <div class="icon"><i class="fa fa-twitter"></i><span></span></div>
-            <div id="tweets" class="flexslider"></div>
-          </div>
-          <!-- end .twitter -->
-          <div class="row">
-            <div class="col-sm-4">
-              <h5>Acerca de</h5>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur some dymm adipiscing
-                elit. Nam turpis quam, sodales in text she ante sagittis, varius
-                efficitur mauris.
-              </p>
-              <hr />
-              <div class="iconbox-left">
-                <div class="icon"><i class="fa fa-map-marker"></i></div>
-                <!-- end .icon -->
-                <div class="content">
-                  <p>2000 Av.Comarapa, Mercado Campesino, FL 12345</p>
-                </div>
-                <!-- end .content -->
-              </div>
-              <!-- end .iconbox-left -->
-              <div class="iconbox-left">
-                <div class="icon"><i class="fa fa-envelope"></i></div>
-                <!-- end .icon -->
-                <div class="content"><p>info@wheels-control.com</p></div>
-                <!-- end .content -->
-              </div>
-              <!-- end .iconbox-left -->
-              <div class="iconbox-left">
-                <div class="icon"><i class="fa fa-phone"></i></div>
-                <!-- end .icon -->
-                <div class="content"><p>123-456-7890</p></div>
-                <!-- end .content -->
-              </div>
-              <!-- end .iconbox-left -->
-            </div>
-            <!-- end .col-sm-4 -->
-            <div class="col-sm-4"></div>
-            <!-- end .col-sm-4 -->
-            <div class="col-sm-4">
-              <h5>Comentarios</h5>
-              <form
-                action="scripts/contact.php"
-                method="post"
-                id="footer-contact-form"
-                target="_blank"
-              >
-                <div class="form-group">
-                  <input
-                    type="text"
-                    class="contact-name"
-                    name="contact-name"
-                    placeholder="Nombre"
-                  />
-                </div>
-                <!-- end .form-group -->
-                <div class="form-group">
-                  <input
-                    type="email"
-                    class="contact-email"
-                    name="contact-email"
-                    placeholder="Correo"
-                  />
-                </div>
-                <!-- end .form-group -->
-                <div class="form-group">
-                  <textarea
-                    name="contact-message"
-                    class="contact-message"
-                    rows="3"
-                    placeholder="Mensaje"
-                  ></textarea>
-                </div>
-                <!-- end .form-group -->
-                <div class="form-group">
-                  <button type="submit" class="button solid block light-blue">
-                    Enviar Mensaje
-                  </button>
-                </div>
-                <!-- end .form-group -->
-                <div
-                  class="contact-loading alert alert-info form-alert alert-small"
-                  role="alert"
-                >
-                  <span class="icon"
-                    ><i class="fa fa-refresh fa-spin"></i
-                  ></span>
-                  <span class="message">Loading...</span>
-                </div>
-                <div
-                  class="contact-success alert alert-success form-alert alert-small"
-                  role="alert"
-                >
-                  <span class="icon"><i class="fa fa-check"></i></span>
-                  <span class="message">Success!</span>
-                </div>
-                <div
-                  class="contact-error alert alert-danger form-alert alert-small"
-                  role="alert"
-                >
-                  <span class="icon"
-                    ><i class="fa fa-exclamation-circle"></i
-                  ></span>
-                  <span class="message">Error!</span>
-                </div>
+                      <a onclick="window.location.href='https://wa.link/fzjdwa'" class="button solid yellow block">
+                        Reservar
+                      </a>
               </form>
-              <!-- end contact-form -->
             </div>
-            <!-- end .col-sm-4 -->
+            <!-- end .refine-search -->
           </div>
-          <!-- end .row -->
+          <!-- end .col-sm-3 -->
         </div>
-        <!-- end .container -->
+        <!-- end .row -->
       </div>
-      <!-- end .top -->
-      <div class="bottom">
-        <span class="copyright"
-          >Copyright 2024. All Rights Reserved by TapiaCode</span
-        >
-      </div>
-      <!-- end .bottom -->
-    </footer>
-    <!-- end .footer -->
+      <!-- end .container -->
+    </div>
+    <!-- end .inner -->
+  </section>
+  <!-- end .section -->
 
-    <!-- jQuery -->
-    <script src="js/jquery-1.11.2.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Inview -->
-    <script src="js/jquery.inview.min.js"></script>
-    <!-- google maps -->
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-    <!-- Tweetie -->
-    <script src="scripts/Tweetie/tweetie.min.js"></script>
-    <!-- FlexSlider -->
-    <script src="scripts/FlexSlider/jquery.flexslider-min.js"></script>
-    <!-- Owl Carousel -->
-    <script src="js/owl.carousel.min.js"></script>
-    <!-- Isotope -->
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <!-- noUiSlider -->
-    <script src="js/jquery.nouislider.all.min.js"></script>
-    <!-- Scripts.js -->
-    <script src="js/scripts.js"></script>
-  </body>
+  <footer class="footer">
+    <div class="top">
+      <div class="container">
+        <div class="twitter">
+          <div class="icon"><i class="fa fa-twitter"></i><span></span></div>
+          <div id="tweets" class="flexslider"></div>
+        </div>
+        <!-- end .twitter -->
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>Acerca de</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur some dymm adipiscing
+              elit. Nam turpis quam, sodales in text she ante sagittis, varius
+              efficitur mauris.
+            </p>
+            <hr />
+            <div class="iconbox-left">
+              <div class="icon"><i class="fa fa-map-marker"></i></div>
+              <!-- end .icon -->
+              <div class="content">
+                <p>2000 Av.Comarapa, Mercado Campesino, FL 12345</p>
+              </div>
+              <!-- end .content -->
+            </div>
+            <!-- end .iconbox-left -->
+            <div class="iconbox-left">
+              <div class="icon"><i class="fa fa-envelope"></i></div>
+              <!-- end .icon -->
+              <div class="content">
+                <p>info@wheels-control.com</p>
+              </div>
+              <!-- end .content -->
+            </div>
+            <!-- end .iconbox-left -->
+            <div class="iconbox-left">
+              <div class="icon"><i class="fa fa-phone"></i></div>
+              <!-- end .icon -->
+              <div class="content">
+                <p>123-456-7890</p>
+              </div>
+              <!-- end .content -->
+            </div>
+            <!-- end .iconbox-left -->
+          </div>
+          <!-- end .col-sm-4 -->
+          <div class="col-sm-4"></div>
+          <!-- end .col-sm-4 -->
+          <div class="col-sm-4">
+            <h5>Comentarios</h5>
+            <form action="scripts/contact.php" method="post" id="footer-contact-form" target="_blank">
+              <div class="form-group">
+                <input type="text" class="contact-name" name="contact-name" placeholder="Nombre" />
+              </div>
+              <!-- end .form-group -->
+              <div class="form-group">
+                <input type="email" class="contact-email" name="contact-email" placeholder="Correo" />
+              </div>
+              <!-- end .form-group -->
+              <div class="form-group">
+                <textarea name="contact-message" class="contact-message" rows="3" placeholder="Mensaje"></textarea>
+              </div>
+              <!-- end .form-group -->
+              <div class="form-group">
+                <button type="submit" class="button solid block light-blue">
+                  Enviar Mensaje
+                </button>
+              </div>
+              <!-- end .form-group -->
+              <div class="contact-loading alert alert-info form-alert alert-small" role="alert">
+                <span class="icon"><i class="fa fa-refresh fa-spin"></i></span>
+                <span class="message">Loading...</span>
+              </div>
+              <div class="contact-success alert alert-success form-alert alert-small" role="alert">
+                <span class="icon"><i class="fa fa-check"></i></span>
+                <span class="message">Success!</span>
+              </div>
+              <div class="contact-error alert alert-danger form-alert alert-small" role="alert">
+                <span class="icon"><i class="fa fa-exclamation-circle"></i></span>
+                <span class="message">Error!</span>
+              </div>
+            </form>
+            <!-- end contact-form -->
+          </div>
+          <!-- end .col-sm-4 -->
+        </div>
+        <!-- end .row -->
+      </div>
+      <!-- end .container -->
+    </div>
+    <!-- end .top -->
+    <div class="bottom">
+      <span class="copyright">Copyright 2024. All Rights Reserved by TapiaCode</span>
+    </div>
+    <!-- end .bottom -->
+  </footer>
+  <!-- end .footer -->
+
+
+  <script>
+    // Selecciona todos los rectángulos por su ID
+    for (let i = 1; i <= 36; i++) {
+      const rect = document.getElementById(`rect${i}`);
+      rect.addEventListener('click', function () {
+        // Guarda el color original en un atributo data
+        if (!this.dataset.originalColor) {
+          this.dataset.originalColor = this.style.fill;
+        }
+
+        // Alterna entre verde y el color original
+        if (this.style.fill === 'rgb(30, 255, 0)') {
+          this.style.fill = this.dataset.originalColor;
+        } else {
+          this.style.fill = 'rgb(30, 255, 0)';
+        }
+      });
+    }
+  </script>
+
+
+  <!-- jQuery -->
+  <script src="js/jquery-1.11.2.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- Inview -->
+  <script src="js/jquery.inview.min.js"></script>
+  <!-- google maps -->
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+  <!-- Tweetie -->
+  <script src="scripts/Tweetie/tweetie.min.js"></script>
+  <!-- FlexSlider -->
+  <script src="scripts/FlexSlider/jquery.flexslider-min.js"></script>
+  <!-- Owl Carousel -->
+  <script src="js/owl.carousel.min.js"></script>
+  <!-- Isotope -->
+  <script src="js/isotope.pkgd.min.js"></script>
+  <script src="js/imagesloaded.pkgd.min.js"></script>
+  <!-- noUiSlider -->
+  <script src="js/jquery.nouislider.all.min.js"></script>
+  <!-- Scripts.js -->
+  <script src="js/scripts.js"></script>
+</body>
+
 </html>
